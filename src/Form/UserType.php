@@ -29,6 +29,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'E-mail',
                 'mapped' => false,
+                'data' => $user->getPlayer() ? $user->getPlayer()->getEmail() : '',
                 'constraints' => [
                     new Assert\NotNull(["message" => "Veuillez remplir ce champ"])
                 ]

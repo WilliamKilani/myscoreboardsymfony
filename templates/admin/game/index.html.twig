@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
+                <th>Photo</th>
                 <th>Joueurs min</th>
                 <th>Joueurs max</th>
                 <th>Actions</th>
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{game.id}}</td>
                     <td>{{game.title}}</td>
+                    <td><img src="{{ asset('images/' ~ game.image) }}" alt="" height="100px"></td>
                     <td>{{game.minPlayers}}</td>
                     <td>{{game.maxPlayers}}</td>
                     <td>

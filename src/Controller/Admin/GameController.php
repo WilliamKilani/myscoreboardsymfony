@@ -79,6 +79,13 @@ class GameController extends AbstractController
         $form = $this->createForm(GameType::class, $jeu);
         $form->handleRequest($rq);
         if($form->isSubmitted() && $form->isValid()){
+            if($fichier = $form->get('image')->getData()){
+                $nomFichier = pathinfo($fichier->getClientOriginalName(), PATHINFO_FILENAME);
+                $nomFichier = str_replace(" ", "_", $nomFichier);
+                $nomFichier .= "_" . uniqid() . "." . $fichier->guessExtension();
+                $fichier->move("images", $nomFichier);
+                $jeu->setImage($nomFichier);
+            }
             $em->flush();
             return $this->redirectToRoute('app_admin_game');
         }
