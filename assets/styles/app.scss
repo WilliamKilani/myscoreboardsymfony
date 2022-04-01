@@ -1,0 +1,10 @@
+$primary : #0d6efd;
+$danger: #fd7e14;
+$dark: #6610f2;
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: lightgray;
+}

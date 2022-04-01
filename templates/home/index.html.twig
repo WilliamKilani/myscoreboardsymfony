@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+  
+    <h2>Page d'accueil</h2>
+
+<div class="card-columns">
+  {% for jeu in jeux %}
+    {{ include("game/_card.html.twig") }}
+  {% endfor %}
+</div>
+
+
+
+<p>Il y a <strong>{{nb_joueurs}}</strong> joueurs inscrits dans la base de données.</p>
+
+<h2>Joueurs ayant déjà gagné une partie :</h2>
+
+<ul>
+  {% for gagnant in gagnants %}
+    <li>{{gagnant.nickname ~ " (" ~ gagnant.email ~ ")"}}</li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
+
+{% block pieddepage %}Footer de la page d'accueil{% endblock %}

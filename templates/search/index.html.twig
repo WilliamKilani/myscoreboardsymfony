@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat de la recherche{% endblock %}
+
+{% block titreH1 %}Résultat de la recherche pour : <code>{{result}}</code>{% endblock %}
+{% block body %}
+    <br>
+    <div class="card-columns">
+    {% for jeu in jeux %}
+        {{ include("game/_card.html.twig") }}
+    {% else %}
+        <mark>Aucun résultat trouvé</mark>
+    {% endfor %}
+    </div><br>
+{% endblock %}
+
+
+{% block pieddepage %}Footer de la page d'accueil{% endblock %}
